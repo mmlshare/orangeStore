@@ -1,9 +1,11 @@
 package com.mmlshare.orangestore.auth.pojo;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 
 import java.util.List;
 
+@TypeAlias("user")
 public class User {
     @Id
     private String username;

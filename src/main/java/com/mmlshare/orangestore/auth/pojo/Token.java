@@ -1,17 +1,19 @@
 package com.mmlshare.orangestore.auth.pojo;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.index.Indexed;
 
-import java.util.Date;
-
+@TypeAlias("token")
 public class Token {
     @Id
     private String username;
     @Indexed
     private String series;
     private String tokenValue;
-    private Date lastUsed;
+    private long lastUsed;
+
+    private String lastUsedStr;
 
     public String getUsername() {
         return username;
@@ -37,11 +39,19 @@ public class Token {
         this.tokenValue = tokenValue;
     }
 
-    public Date getLastUsed() {
+    public long getLastUsed() {
         return lastUsed;
     }
 
-    public void setLastUsed(Date lastUsed) {
+    public void setLastUsed(long lastUsed) {
         this.lastUsed = lastUsed;
+    }
+
+    public String getLastUsedStr() {
+        return lastUsedStr;
+    }
+
+    public void setLastUsedStr(String lastUsedStr) {
+        this.lastUsedStr = lastUsedStr;
     }
 }

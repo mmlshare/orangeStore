@@ -1,6 +1,5 @@
 package com.mmlshare.orangestore;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,13 +15,14 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
-    private UserDetailsService AuthUserDetailService;
+    private UserDetailsService authUserDetailService;
 
+    @Resource
     private PersistentTokenRepository authPersistentRememberMeTokenService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(AuthUserDetailService).passwordEncoder(new PasswordEncoder() {
+        auth.userDetailsService(authUserDetailService).passwordEncoder(new PasswordEncoder() {
             @Override
             public String encode(CharSequence charSequence) {
                 return charSequence.toString();
@@ -41,11 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 如果有允许匿名的url，填在下面
                 // .antMatchers().permitAll()
                 .anyRequest().authenticated()
-                .and()
-                // 设置登陆页
-                .formLogin()
-                // 设置登陆成功页
-                .defaultSuccessUrl("/").permitAll()
                 // 自定义登陆用户名和密码参数，默认为username和password
 //                .usernameParameter("username")
 //                .passwordParameter("password")
@@ -53,10 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().permitAll().and()
                 .formLogin(withDefaults())
                 .rememberMe().
-                tokenRepository(persistentTokenRepository())
+                tokenRepository(authPersistentRememberMeTokenService)
                 // 有效时间：单位s
-                .tokenValiditySeconds(60)
-                .userDetailsService(AuthUserDetailService);
+                .tokenValiditySeconds(6000)
+                .userDetailsService(authUserDetailService);
         ;
 
         // 关闭CSRF跨域
@@ -66,8 +61,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Bean
-    public PersistentTokenRepository persistentTokenRepository() {
-        return authPersistentRememberMeTokenService;
-    }
+
 }

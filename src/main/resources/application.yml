@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:123456@mongodb:27017/?authSource=admin
+      database: orangeStore
