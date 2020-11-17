@@ -1,6 +1,7 @@
 package com.mmlshare.orangestore.auth.repository.impl;
 
-import com.mmlshare.orangestore.auth.pojo.Role;
+
+import com.mmlshare.auth.beans.Role;
 import com.mmlshare.orangestore.auth.repository.RoleRepository;
 import org.springframework.stereotype.Repository;
 

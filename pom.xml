@@ -16,12 +16,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>base-beans</module>
+        <module>authBeans</module>
         <module>authManagerClient</module>
         <module>authManagerServer</module>
         <module>base-api</module>
         <module>base-utils</module>
-        <module>base-beans</module>
-        <module>authBeans</module>
+
+
         <module>base-http</module>
     </modules>
 

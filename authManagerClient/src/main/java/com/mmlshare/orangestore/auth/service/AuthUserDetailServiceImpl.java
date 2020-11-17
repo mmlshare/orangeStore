@@ -1,7 +1,8 @@
 package com.mmlshare.orangestore.auth.service;
 
-import com.mmlshare.orangestore.auth.pojo.Role;
-import com.mmlshare.orangestore.auth.pojo.User;
+
+import com.mmlshare.auth.beans.Role;
+import com.mmlshare.auth.beans.User;
 import com.mmlshare.orangestore.auth.repository.RoleRepository;
 import com.mmlshare.orangestore.auth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ import java.util.List;
 public class AuthUserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
-    
+
     @Autowired
     private RoleRepository roleRepository;
 

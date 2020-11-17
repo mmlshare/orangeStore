@@ -1,6 +1,7 @@
 package com.mmlshare.orangestore.auth.repository;
 
-import com.mmlshare.orangestore.auth.pojo.Token;
+
+import com.mmlshare.auth.beans.Token;
 
 public interface TokenRepository {
 

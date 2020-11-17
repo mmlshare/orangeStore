@@ -1,6 +1,7 @@
 package com.mmlshare.orangestore.auth.service;
 
-import com.mmlshare.orangestore.auth.pojo.Token;
+
+import com.mmlshare.auth.beans.Token;
 import com.mmlshare.orangestore.auth.repository.TokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;

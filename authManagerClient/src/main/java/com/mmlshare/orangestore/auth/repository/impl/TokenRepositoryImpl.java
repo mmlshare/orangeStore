@@ -1,6 +1,7 @@
 package com.mmlshare.orangestore.auth.repository.impl;
 
-import com.mmlshare.orangestore.auth.pojo.Token;
+
+import com.mmlshare.auth.beans.Token;
 import com.mmlshare.orangestore.auth.repository.TokenRepository;
 import org.springframework.stereotype.Repository;
 

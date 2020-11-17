@@ -1,6 +1,7 @@
 package com.mmlshare.orangestore.auth.repository;
 
-import com.mmlshare.orangestore.auth.pojo.User;
+
+import com.mmlshare.auth.beans.User;
 
 public interface UserRepository {
     void addUser(User user);
