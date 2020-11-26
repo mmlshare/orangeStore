@@ -1,5 +1,11 @@
 spring:
-  data:
-    mongodb:
-      uri: mongodb://admin:123456@mongodb:27017/?authSource=admin
-      database: orangeStore
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/teach
+    username: mmlshare
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database: mysql

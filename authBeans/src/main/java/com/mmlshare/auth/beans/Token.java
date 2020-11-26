@@ -1,18 +1,30 @@
 package com.mmlshare.auth.beans;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.mongodb.core.index.Indexed;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@TypeAlias("token")
+/**
+ * Token
+ */
+
+@Entity
+@Table(name = "token")
 public class Token {
-    @Id
+
+    @Column(length = 30, name = "username")
     private String username;
-    @Indexed
+    @Id
+    @Column(length = 60, name = "series")
     private String series;
+
+    @Column(length = 60, name = "token_value")
     private String tokenValue;
+    @Column(name = "last_used")
     private long lastUsed;
 
+    @Column(length = 30, name = "last_used_str")
     private String lastUsedStr;
 
     public String getUsername() {

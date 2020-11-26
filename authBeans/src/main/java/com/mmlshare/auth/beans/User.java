@@ -1,25 +1,22 @@
 package com.mmlshare.auth.beans;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.TypeAlias;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import java.util.List;
-
-@TypeAlias("user")
+/**
+ * 用户
+ */
+@Entity
+@Table(name = "user")
 public class User {
     @Id
+    @Column(length = 30, name = "username")
     private String username;
+    @Column(length = 30, name = "password")
     private String password;
 
-    private List<Role> roleList;
-
-    public List<Role> getRoleList() {
-        return roleList;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
-    }
 
     public String getUsername() {
         return username;
