@@ -29,7 +29,7 @@ public class AuthPersistentRememberMeTokenService implements PersistentTokenRepo
         sysToken.setLastUsedStr(dateFormat.format(date));
         sysToken.setSeries(token.getSeries());
         sysToken.setTokenValue(token.getTokenValue());
-        tokenRepository.save(sysToken);
+        tokenRepository.addToken(sysToken);
 
     }
 
@@ -42,7 +42,7 @@ public class AuthPersistentRememberMeTokenService implements PersistentTokenRepo
         token.setTokenValue(tokenValue);
         token.setSeries(series);
 
-        tokenRepository.save(token);
+        tokenRepository.modifyToken(token);
 
     }
 
@@ -58,6 +58,6 @@ public class AuthPersistentRememberMeTokenService implements PersistentTokenRepo
 
     @Override
     public void removeUserTokens(String username) {
-        tokenRepository.deleteTokenByUsername(username);
+        tokenRepository.removeTokenByUsername(username);
     }
 }

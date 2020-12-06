@@ -16,7 +16,7 @@ public class UserManagerServiceImpl implements UserManagerService {
     public User registerUser(User user) {
 
         //保存用户
-        userRepository.save(user);
+        userRepository.addUser(user);
 
         return user;
     }

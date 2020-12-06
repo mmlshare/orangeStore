@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmlshare.auth.mapper.TokenMapper">
+    <resultMap id="BaseResultMap" type="com.mmlshare.auth.beans.Token">
+        <id property="series" column="series"/>
+        <result property="username" column="username"/>
+        <result property="tokenValue" column="token_value"/>
+        <result property="lastUsed" column="last_used"/>
+        <result property="lastUsedStr" column="last_used_str"/>
+    </resultMap>
+
+    <sql id="columns">
+        series,
+        username,
+        token_value,
+        last_used,
+        last_used_str
+
+    </sql>
+
+    <insert id="insertToken">
+        INSERT INTO
+            token( <include refid="columns"/> )
+        VALUES (
+            #{series},
+            #{username},
+            #{tokenValue},
+            #{lastUsed},
+            #{lastUsedStr}
+        )
+    </insert>
+    <update id="updateToken">
+        UPDATE
+            token
+        SET
+            username= #{username},
+            token_value = #{tokenValue},
+            last_used = #{lastUsed},
+            last_used_str = #{lastUsedStr}
+        WHERE
+            series = #{series}
+    </update>
+
+    <delete id="deleteByUsername">
+        DELETE
+            FROM token
+        WHERE
+            username = #{username}
+    </delete>
+    <select id="selectBySeries" resultMap="BaseResultMap">
+        SELECT
+            <include refid="columns"/>
+        FROM
+            token
+        WHERE
+            series = #{series}
+
+    </select>
+
+
+</mapper>

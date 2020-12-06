@@ -1,22 +1,14 @@
 package com.mmlshare.auth.beans;
 
-import javax.persistence.*;
 
 /**
  * 用户 权限关系表
  */
-@Entity
-@Table(name = "user_role")
 public class UserRole {
 
-    @Column(length = 30, name = "username")
     private String username;
-    @Column(length = 30, name = "role_id")
     private String roleId;
-    @Column(length = 30, name = "role_name")
     private String roleName;
-    @Id
-    @GeneratedValue
     private String id;
 
     public String getUsername() {

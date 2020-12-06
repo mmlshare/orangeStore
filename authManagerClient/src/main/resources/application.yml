@@ -4,8 +4,9 @@ spring:
     username: mmlshare
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    database: mysql
+mybatis:
+  mapper-locations: classpath*:conf/mapper/*.xml
+
+logging:
+  level:
+    com.mmlshare.auth.mapper: debug
